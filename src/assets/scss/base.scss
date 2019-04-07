@@ -27,14 +27,14 @@ $min-medium: 768px;
 $min-large: 992px;
 
 /*Mixins*/
-@mixin btnPrimary($w, $bc, $c){
+@mixin btnPrimary($w, $bc, $c, $p){
     //background-color: $bc;
     color: $c;
     font-weight: bold;
     border: none;
     width: $w;
     max-width: 300px;
-    padding: .7rem 0;
+    padding: $p;
     position: relative;
     overflow: hidden;
     background: linear-gradient(45deg, transparent 10px, $bc 0) top left;
@@ -253,6 +253,13 @@ $min-large: 992px;
         opacity: .625;
     }
     
+}
+
+@mixin title($size, $color, $italic, $weight){
+    font-size: $size;
+    color: $color;
+    font-style: $italic;
+    font-weight: $weight;
 }
 
 /*Mixin Grid*/

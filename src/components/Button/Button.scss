@@ -1,4 +1,4 @@
 @import './../../assets//scss/base.scss';
 .primary{
-    @include btnPrimary(150px, $treepoppy, $white);
+    @include btnPrimary(150px, $treepoppy, $white, .7rem 0);
 }

@@ -1,0 +1,33 @@
+@import './../../assets//scss/base.scss';
+.userListItem{
+    @include flex(100%, row, flex-start, center);
+    border-bottom: 1px dashed $iron;
+    padding: .5rem;
+    box-sizing: border-box;
+    &:last-child{
+        border: none;
+    }
+    &:nth-child(odd){
+        background-color: $wildsand;
+    }
+    .name{
+        width: calc(50% - 110px);
+    }
+    .email{
+        width: calc(50% - 170px);
+    }
+    .downloads{
+        width: 70px;
+    }
+    .rol{
+        width: 120px;
+        text-align: left;
+    }
+    .action{
+        width: 90px;
+        text-align: right;
+        .primay{
+            @include btnPrimary(90px, $mineshaft, $white, .3rem 0);
+        }
+    }
+}

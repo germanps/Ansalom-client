@@ -12,7 +12,7 @@ export default class Header extends React.Component<IHeaderProps, {}> {
                     <div className="logo">
                         <img src={reactLogo}/>
                     </div>
-                    <h1>{this.props.title}</h1>
+                    <h1 className="main-title">{this.props.title}</h1>
                 </div>
                 <nav>
                     <ul>

@@ -13,5 +13,8 @@
                 height: auto;
             }
         }
+        .main-title{
+            @include title(2rem, $mineshaft, normal, 700);
+        }
     }
 }
