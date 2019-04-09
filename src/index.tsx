@@ -2,7 +2,7 @@ import * as React from "react";
 import {render} from "react-dom";
 import {AppContainer} from "react-hot-loader";
 import App from "./App";
-import './index.scss';
+import "./index.scss";
 import ReactDOM = require("react-dom");
 
 /* const rootEl = document.getElementById("root");

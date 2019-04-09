@@ -1,5 +1,5 @@
 import * as React from "react";
-import { IButtonProps } from './IButtonProps'
+import { IButtonProps } from "./IButtonProps";
 import "./Button.scss";
 
 
@@ -14,4 +14,4 @@ export default class Button extends React.Component<IButtonProps, {}> {
             </button>
         );
     }
-} 
+}

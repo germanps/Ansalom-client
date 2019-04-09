@@ -26,8 +26,10 @@
     .action{
         width: 90px;
         text-align: right;
-        .primay{
-            @include btnPrimary(90px, $mineshaft, $white, .3rem 0);
+        .btn{
+            @include btnPrimary(auto, $treepoppy, $white, .2rem 1rem);
+            text-decoration: none;
+            display: inline-block;
         }
     }
 }

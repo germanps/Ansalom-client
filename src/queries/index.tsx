@@ -1,6 +1,7 @@
-import gql from 'graphql-tag';
+import gql from "graphql-tag";
+import Usuario from "./../Models/Usuario";
 
-export const USUARIOS_QUERY = gql`{
+export const USUARIOS_QUERY: Usuario = gql`{
 	getUsuarios{
         id
         nombre

@@ -17,4 +17,10 @@
             @include title(2rem, $mineshaft, normal, 700);
         }
     }
+    .btn{
+        @include btnPrimary(auto, $deepsea, $white, .4rem 1rem);
+        display: inline-block;
+        text-decoration: none;
+        text-align: center;
+    }
 }

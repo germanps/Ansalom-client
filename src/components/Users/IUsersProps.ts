@@ -1,3 +1,3 @@
-export interface IUsersProps{
-    
+export interface IUsersProps {
+    query: any;
 }

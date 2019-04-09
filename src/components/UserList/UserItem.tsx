@@ -1,7 +1,8 @@
 import * as React from "react";
-import { IUserItemProps } from './IUserItemProps'
+import { IUserItemProps } from "./IUserItemProps";
 import "./UserItem.scss";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 
 export default class UserItem extends React.Component<IUserItemProps, {}> {
     public render(): React.ReactElement<IUserItemProps> {
@@ -21,9 +22,9 @@ export default class UserItem extends React.Component<IUserItemProps, {}> {
                     <span>{this.props.usuario.rol}</span>
                 </div>
                 <div className="action">
-                    <Button title="Editar" variant="primay"/>
+                    <Link to={`/user/edit:${this.props.usuario.id}`} className="btn">Editar</Link>
                 </div>
             </li>
         );
     }
-} 
+}
