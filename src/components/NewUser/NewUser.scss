@@ -1,0 +1,32 @@
+@import './../../assets//scss/base.scss';
+.newUser{
+    .form{
+        @include flex(100%, row, flex-start, flex-start);
+        flex-wrap: wrap;
+        
+        .form-row{
+            width: 50%;
+            box-sizing: border-box;
+            .form-group{
+                margin-bottom: 1rem;
+
+                label{
+                    width: 120px;
+                    display: inline-block;
+                }
+                input{
+                    width: calc(100% - 140px);
+                    height: 25px;
+                }
+            }
+            &:nth-child(odd){
+                padding-right: 1rem;
+            }
+            &:nth-child(even){
+                padding-left: 1rem;
+            }
+
+        }
+        
+    }
+}

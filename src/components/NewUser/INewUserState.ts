@@ -1,4 +1,4 @@
 import Usuario from "./../../Models/Usuario";
-export interface IUserItemProps {
+export interface INewUserState {
     usuario: Usuario;
 }
