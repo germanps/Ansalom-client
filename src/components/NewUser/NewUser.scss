@@ -1,12 +1,27 @@
 @import './../../assets//scss/base.scss';
 .newUser{
+    .title{
+        font-size: 1.5rem;
+        color: $mineshaft;
+        font-style: italic;
+        font-weight: 700;
+    }
+    .form-error{
+        font-weight: 700;
+        color: $monza * 1.5;
+    }
     .form{
         @include flex(100%, row, flex-start, flex-start);
         flex-wrap: wrap;
+
         
         .form-row{
             width: 50%;
             box-sizing: border-box;
+            margin-bottom: 1rem;
+            &:last-child{
+                margin-bottom: 0;
+            }
             .form-group{
                 margin-bottom: 1rem;
 
@@ -17,6 +32,15 @@
                 input{
                     width: calc(100% - 140px);
                     height: 25px;
+                    @include placeholder($abbey, 14px);
+                }
+                select{
+                    color: $abbey;
+                    padding-left: .5rem;
+                    font-size: 14px;
+                    font-family: 'Cormorant Garamond', serif;
+                    width: calc(100% - 135px);
+                    height: 30px;
                 }
             }
             &:nth-child(odd){

@@ -8,7 +8,7 @@ export default class Button extends React.Component<IButtonProps, {}> {
         return (
             <button
                 type="button"
-                className={this.props.variant}
+                className={this.props.background}
             >
                 {this.props.title}
             </button>

@@ -5,6 +5,7 @@ import { INewUserState } from "./INewUserState";
 import Usuario from "./../../Models/Usuario";
 import { NUEVO_USUARIO } from "./../../mutations";
 import { Mutation } from "react-apollo";
+import Button from "../Button/Button";
 
 
 export default class NewUser extends React.Component<INewUserProps, INewUserState> {
@@ -16,18 +17,29 @@ export default class NewUser extends React.Component<INewUserProps, INewUserStat
                 apellido: "",
                 email: "",
                 rol: "",
-            }
+            },
+            error: false
         };
     }
     public render(): React.ReactElement<INewUserProps> {
+        const {error} = this.state;
+        let respuesta = (error) ? <p className="form-error container">Todos los campos son abligatorios</p> : "";
         return(
             <div className="newUser">
+                <h2 className="title container">Nuevo usuario</h2>
+                {respuesta}
                 <Mutation mutation={NUEVO_USUARIO}>
                     {crearUsuario => (
                         <form className="form container"
                             onSubmit={e => {
                                 e.preventDefault();
                                 const {nombre, apellido, email, favoritos, descargas, rol, comentarios} = this.state.usuario;
+                                // Control de campos vacios
+                                if (nombre === "" || apellido === "" || email === "" || rol === "") {
+                                    this.setState({error: true});
+                                    return;
+                                }
+                                this.setState({error: false});
                                 const input = {
                                     nombre,
                                     apellido,
@@ -59,7 +71,7 @@ export default class NewUser extends React.Component<INewUserProps, INewUserStat
                             </div>
                             <div className="form-group">
                                 <label htmlFor="surname">Apellido</label>
-                                <input 
+                                <input
                                     id="surname"
                                     type="text"
                                     className="form-control"
@@ -114,7 +126,7 @@ export default class NewUser extends React.Component<INewUserProps, INewUserStat
                             </div>
                         </div>
                         <div className="form-row">
-                            <button type="submit" className="btn btn-success float-right">Guardar Cambios</button>
+                            <Button title="Guardar usuario" background="secondary"/>
                         </div>
                     </form>
                     )}

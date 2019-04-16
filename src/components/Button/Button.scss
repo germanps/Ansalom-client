@@ -1,4 +1,14 @@
 @import './../../assets//scss/base.scss';
 .primary{
-    @include btnPrimary(150px, $treepoppy, $white, .7rem 0);
+    @include btnPrimary(auto, $deepsea, $white, .4rem 1rem);
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
 }
+.secondary{
+    @include btnPrimary(auto, $treepoppy, $white, .4rem 1rem);
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+}
+

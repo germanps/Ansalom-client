@@ -1,4 +1,4 @@
 export interface IButtonProps{
-    title:string;
-    variant:string;
+    title: string;
+    background: string;
 }

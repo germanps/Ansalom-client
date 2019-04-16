@@ -42,6 +42,9 @@ $min-large: 992px;
     &:focus {
         outline: none; 
     }
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
 }
 @mixin btnSecondary($w, $bc, $c){
     //background-color: $bc;
@@ -72,21 +75,25 @@ $min-large: 992px;
         color: $color;
         padding-left: .5rem;
         font-size: $size;
+        font-family: 'Cormorant Garamond', serif;
     }
     &::-moz-placeholder { /* Firefox 19+ */
         color: $color;
         padding-left: .5rem;
         font-size: $size;
+        font-family: 'Cormorant Garamond', serif;
     }
     &:-ms-input-placeholder { /* IE 10+ */
         color: $color;
         padding-left: .5rem;
         font-size: $size;
+        font-family: 'Cormorant Garamond', serif;
     }
     &:-moz-placeholder { /* Firefox 18- */
         color: $color;
         padding: .5rem;
         font-size: $size;
+        font-family: 'Cormorant Garamond', serif;
     }
 }
 @mixin radio(){
@@ -260,30 +267,4 @@ $min-large: 992px;
     color: $color;
     font-style: $italic;
     font-weight: $weight;
-}
-
-/*Mixin Grid*/
-@mixin grid(){
-    table thead th{
-        background-color: $iron;
-        span{
-            color: $scorpion;
-            font-weight: bold;
-        }
-    }
-    table tbody tr:nth-child(odd){
-        background-color: $wildsand;
-    }
-    table tbody tr td[class^='e-rowcell e-selectionbackground e-active'],
-    table tbody tr td[class^='e-rowcell e-focus e-selectionbackground e-active']{
-        background: $deepseaopacity;
-        color: #333;
-    }
-    form table tbody tr td span[class^='e-input-group e-control-wrapper e-input-focus']{
-        border-color: $deepsea !important;
-    }
-    a[class^='e-link']{
-        background: $deepsea;
-        color: $white;
-    }
 }
