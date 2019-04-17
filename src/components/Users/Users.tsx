@@ -10,8 +10,8 @@ export default class Users extends React.Component<IUsersProps, {}> {
     public render(): React.ReactElement<IUsersProps> {
         return (
             <>
-                <Query query={USUARIOS_QUERY}>
-                    {({ loading, error, data }) => {
+                <Query query={USUARIOS_QUERY} pollInterval={1000}>
+                    {({ loading, error, data, startPolling, stopPolling }) => {
                         if (loading) return "Cargando...";
                         if (error) return `Error ${error.message}`
                         console.log(data);

@@ -5,7 +5,6 @@ import { INewUserState } from "./INewUserState";
 import Usuario from "./../../Models/Usuario";
 import { NUEVO_USUARIO } from "./../../mutations";
 import { Mutation } from "react-apollo";
-import Button from "../Button/Button";
 
 
 export default class NewUser extends React.Component<INewUserProps, INewUserState> {
@@ -28,7 +27,10 @@ export default class NewUser extends React.Component<INewUserProps, INewUserStat
             <div className="newUser">
                 <h2 className="title container">Nuevo usuario</h2>
                 {respuesta}
-                <Mutation mutation={NUEVO_USUARIO}>
+                <Mutation
+                    mutation={NUEVO_USUARIO}
+                    onCompleted={ () => this.props.history.push("/") }
+                >
                     {crearUsuario => (
                         <form className="form container"
                             onSubmit={e => {
@@ -126,7 +128,7 @@ export default class NewUser extends React.Component<INewUserProps, INewUserStat
                             </div>
                         </div>
                         <div className="form-row">
-                            <Button title="Guardar usuario" background="secondary"/>
+                            <input type="submit" value="Guardar usuario"/>
                         </div>
                     </form>
                     )}

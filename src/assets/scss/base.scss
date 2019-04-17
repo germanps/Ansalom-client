@@ -45,6 +45,8 @@ $min-large: 992px;
     display: inline-block;
     text-decoration: none;
     text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
 }
 @mixin btnSecondary($w, $bc, $c){
     //background-color: $bc;
@@ -62,6 +64,7 @@ $min-large: 992px;
     &:focus {
         outline: none; 
     }
+    font-family: 'Cormorant Garamond', serif;
 }
 @mixin flex($w, $d, $j, $a){
     width: $w;
@@ -73,25 +76,21 @@ $min-large: 992px;
 @mixin placeholder($color, $size){
     &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
         color: $color;
-        padding-left: .5rem;
         font-size: $size;
         font-family: 'Cormorant Garamond', serif;
     }
     &::-moz-placeholder { /* Firefox 19+ */
-        color: $color;
-        padding-left: .5rem;
+        color: $color;     
         font-size: $size;
         font-family: 'Cormorant Garamond', serif;
     }
     &:-ms-input-placeholder { /* IE 10+ */
-        color: $color;
-        padding-left: .5rem;
+        color: $color;       
         font-size: $size;
         font-family: 'Cormorant Garamond', serif;
     }
     &:-moz-placeholder { /* Firefox 18- */
-        color: $color;
-        padding: .5rem;
+        color: $color;      
         font-size: $size;
         font-family: 'Cormorant Garamond', serif;
     }

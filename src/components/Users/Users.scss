@@ -19,6 +19,10 @@
             box-sizing: border-box;
             background-color: $mineshaft;
             color: $white;
+            span{
+                font-size: 1.1rem;
+            }
+            
             .name{
                 width: calc(50% - 110px);
             }
@@ -38,6 +42,9 @@
             span{
                 width: 25%;
             }
+        }
+        span{
+            font-size: 1rem;
         }
     }
 }

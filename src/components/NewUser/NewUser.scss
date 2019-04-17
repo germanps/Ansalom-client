@@ -28,20 +28,28 @@
                 label{
                     width: 120px;
                     display: inline-block;
+                    color: $mineshaft;
+                    font-size: 1.1rem;
                 }
                 input{
                     width: calc(100% - 140px);
                     height: 25px;
-                    @include placeholder($abbey, 14px);
+                    @include placeholder($mineshaft, 1rem);
+                    padding-left: .5rem;
+                    color: $mineshaft;
+                    font-family: 'Cormorant Garamond', serif;
+                    font-size: 1.1rem;
                 }
                 select{
-                    color: $abbey;
+                    color: $mineshaft;
                     padding-left: .5rem;
-                    font-size: 14px;
+                    font-size: 1.1rem;
                     font-family: 'Cormorant Garamond', serif;
                     width: calc(100% - 135px);
                     height: 30px;
+                    @include placeholder($mineshaft, 1rem);
                 }
+                
             }
             &:nth-child(odd){
                 padding-right: 1rem;
@@ -49,7 +57,9 @@
             &:nth-child(even){
                 padding-left: 1rem;
             }
-
+            [type="submit"]{
+                @include btnPrimary(auto, $treepoppy, $white, 0.4rem 1rem);
+            }
         }
         
     }
