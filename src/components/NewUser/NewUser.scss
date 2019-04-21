@@ -1,10 +1,7 @@
 @import './../../assets//scss/base.scss';
 .newUser{
     .title{
-        font-size: 1.5rem;
-        color: $mineshaft;
-        font-style: italic;
-        font-weight: 700;
+        @include title(1.5rem,$mineshaft,italic,700);
     }
     .form-error{
         font-weight: 700;

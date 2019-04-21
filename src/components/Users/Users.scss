@@ -7,6 +7,7 @@
     box-sizing: border-box;
     .title{
         @include title(1.5rem, $mineshaft, italic, 700);
+        margin-top: 0;
     }
     .userList{
         padding: 0;

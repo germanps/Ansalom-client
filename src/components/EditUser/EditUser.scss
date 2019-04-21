@@ -1,0 +1,4 @@
+@import './../../assets/scss/base.scss';
+.title{
+    @include title(1.5rem,$mineshaft,italic,700);
+}

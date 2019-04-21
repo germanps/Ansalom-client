@@ -1,5 +1,6 @@
 import * as React from "react";
 import { IFormEditUserProps } from "./IFormEditUserProps";
+import "./FormEditUser.scss";
 
 
 export default class FormEditUser extends React.Component<IFormEditUserProps, {}> {
