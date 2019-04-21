@@ -19,3 +19,13 @@ export const USUARIOS_QUERY: Usuario = gql`{
         }
     }
 }`;
+
+export const USUARIO_QUERY = gql`
+    query consultarUsuario($id:ID){
+        getUsuario(id: $id){
+          nombre
+          apellido
+          email
+        }
+      }
+`;

@@ -12,12 +12,14 @@ export default class Main extends React.Component<IMainProps, {}> {
         return(
             <div className="main">
                 <HashRouter>
-                    <Header title="Ansalom Books"/>
-                    <Switch>
-                        <Route exact path="/" component={Users} />
-                        <Route exact path="/user/new" component={NewUser} />
-                        <Route exact path="/user/edit/:id" component={EditUser} />
-                    </Switch>
+                    <>
+                        <Header title="Ansalom Books"/>
+                        <Switch>
+                            <Route exact path="/" component={Users} />
+                            <Route exact path="/user/new" component={NewUser} />
+                            <Route exact path="/user/edit/:id" component={EditUser} />
+                        </Switch>
+                    </>
                 </HashRouter>
             </div>
         );

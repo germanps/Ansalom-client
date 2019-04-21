@@ -22,7 +22,7 @@ export default class UserItem extends React.Component<IUserItemProps, {}> {
                     <span>{this.props.usuario.rol}</span>
                 </div>
                 <div className="action">
-                    <Link to={`/user/edit:${this.props.usuario.id}`} className="btn">Editar</Link>
+                    <Link to={`/user/edit/${this.props.usuario.id}`} className="btn">Editar</Link>
                 </div>
             </li>
         );
