@@ -4,7 +4,7 @@ import "./FormEditUser.scss";
 
 
 export default class FormEditUser extends React.Component<IFormEditUserProps, {}> {
-    constructor(props: IFormEditUserProps){
+    constructor(props: IFormEditUserProps) {
         super(props);
         this.state = {
 
@@ -14,7 +14,6 @@ export default class FormEditUser extends React.Component<IFormEditUserProps, {}
     public render(): React.ReactElement<IFormEditUserProps> {
         return(
             <form className="form container"
-   
             >
             <div className="form-row">
                 <div className="form-group">
@@ -25,7 +24,8 @@ export default class FormEditUser extends React.Component<IFormEditUserProps, {}
                         className="form-control"
                         placeholder="Nombre"
                         onChange={e => {
-                            console.log(e.target.value);                        }}
+                            console.log(e.target.value);
+                        }}
                     />
                 </div>
                 <div className="form-group">
@@ -36,7 +36,8 @@ export default class FormEditUser extends React.Component<IFormEditUserProps, {}
                         className="form-control"
                         placeholder="Apellido"
                         onChange={e => {
-                            console.log(e.target.value);                        }}
+                            console.log(e.target.value); 
+                        }}
                     />
                 </div>
             </div>
@@ -49,7 +50,8 @@ export default class FormEditUser extends React.Component<IFormEditUserProps, {}
                         className="form-control"
                         placeholder="Email"
                         onChange={e => {
-                            console.log(e.target.value);                        }}
+                            console.log(e.target.value);
+                        }}
                     />
                 </div>
                 <div className="form-group">
@@ -57,7 +59,8 @@ export default class FormEditUser extends React.Component<IFormEditUserProps, {}
                     <select
                         className="form-control"
                         onChange={e => {
-                            console.log(e.target.value);                        }}
+                            console.log(e.target.value);
+                        }}
                     >
                         <option value="">Elegir...</option>
                         <option value="ADMIN">ADMIN</option>
@@ -70,7 +73,7 @@ export default class FormEditUser extends React.Component<IFormEditUserProps, {}
                 <input type="submit" value="Guardar usuario"/>
             </div>
         </form>
-        )
+        );
     }
 }
 

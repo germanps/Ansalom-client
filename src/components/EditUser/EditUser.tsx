@@ -1,8 +1,8 @@
 import * as React from "react";
 import { IEditUserProps } from "./IEditUserProps";
 import "./EditUser.scss";
-import { USUARIO_QUERY } from '../../queries'; 
-import { Query } from 'react-apollo';
+import { USUARIO_QUERY } from "../../queries";
+import { Query } from "react-apollo";
 import FormEditUser from "../FormEditUser/FormEditUser";
 
 
@@ -14,14 +14,14 @@ export default class EditUser extends React.Component<IEditUserProps, {}> {
                 <h2 className="title container">Editar usuario</h2>
                 <Query query={USUARIO_QUERY} variables={{id}}>
                     {({loading, error, data}) => {
-                        if(loading) return 'Cargando...';
-                        if(error) return `Error! ${error.message}`;
+                        if (loading) return "Cargando...";
+                        if (error) return `Error! ${error.message}`;
                         console.log(data);
                         return(
-                            <FormEditUser 
+                            <FormEditUser
 
                             />
-                        )
+                        );
                     }}
                 </Query>
             </div>
