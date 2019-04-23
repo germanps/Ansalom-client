@@ -1,17 +1,19 @@
 import * as React from "react";
 import { IFormEditUserProps } from "./IFormEditUserProps";
+import { IFormEditUserState } from "./IFormEditUserState";
 import "./FormEditUser.scss";
 
 
-export default class FormEditUser extends React.Component<IFormEditUserProps, {}> {
+export default class FormEditUser extends React.Component<IFormEditUserProps, IFormEditUserState> {
     constructor(props: IFormEditUserProps) {
         super(props);
         this.state = {
-
-        }
+            usuario: this.props.usuario
+        };
     }
 
     public render(): React.ReactElement<IFormEditUserProps> {
+        const {nombre, apellido, email, rol} = this.props.usuario;
         return(
             <form className="form container"
             >
@@ -22,9 +24,14 @@ export default class FormEditUser extends React.Component<IFormEditUserProps, {}
                         id="name"
                         type="text"
                         className="form-control"
-                        placeholder="Nombre"
+                        defaultValue={nombre}
                         onChange={e => {
-                            console.log(e.target.value);
+                            this.setState({
+                                usuario: {
+                                    ...this.state.usuario,
+                                    nombre: e.target.value
+                                }
+                            });
                         }}
                     />
                 </div>
@@ -34,9 +41,14 @@ export default class FormEditUser extends React.Component<IFormEditUserProps, {}
                         id="surname"
                         type="text"
                         className="form-control"
-                        placeholder="Apellido"
+                        defaultValue={apellido}
                         onChange={e => {
-                            console.log(e.target.value); 
+                            this.setState({
+                                usuario: {
+                                    ...this.state.usuario,
+                                    apellido: e.target.value
+                                }
+                            });
                         }}
                     />
                 </div>
@@ -48,9 +60,14 @@ export default class FormEditUser extends React.Component<IFormEditUserProps, {}
                         id="email"
                         type="email"
                         className="form-control"
-                        placeholder="Email"
+                        defaultValue={email}
                         onChange={e => {
-                            console.log(e.target.value);
+                            this.setState({
+                                usuario: {
+                                    ...this.state.usuario,
+                                    email: e.target.value
+                                }
+                            });
                         }}
                     />
                 </div>
@@ -59,8 +76,14 @@ export default class FormEditUser extends React.Component<IFormEditUserProps, {}
                     <select
                         className="form-control"
                         onChange={e => {
-                            console.log(e.target.value);
+                            this.setState({
+                                usuario: {
+                                    ...this.state.usuario,
+                                    rol: e.target.value
+                                }
+                            });
                         }}
+                        defaultValue={rol}
                     >
                         <option value="">Elegir...</option>
                         <option value="ADMIN">ADMIN</option>

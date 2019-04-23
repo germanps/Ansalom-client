@@ -19,7 +19,7 @@ export default class EditUser extends React.Component<IEditUserProps, {}> {
                         console.log(data);
                         return(
                             <FormEditUser
-
+                                usuario={data.getUsuario}
                             />
                         );
                     }}

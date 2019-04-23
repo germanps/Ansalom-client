@@ -1,5 +1,5 @@
 import Usuario from "../../Models/Usuario";
 
-export interface IFormEditUserProps {
+export interface IFormEditUserState {
     usuario: Usuario;
 }
