@@ -17,7 +17,12 @@ export default class FormEditUser extends React.Component<IFormEditUserProps, IF
     public render(): React.ReactElement<IFormEditUserProps> {
         const {nombre, apellido, email, rol} = this.props.usuario;
         return(
-            <Mutation mutation={ACTUALIZAR_USUARIO}>
+            <Mutation
+                mutation={ACTUALIZAR_USUARIO}
+                onCompleted={ () => this.props.refetch().then(() => {
+                    this.props.history.push("/");
+                })}
+            >
                 {actualizarUsuario => (
                     <form className="form container"
                         onSubmit={e => {
@@ -116,5 +121,3 @@ export default class FormEditUser extends React.Component<IFormEditUserProps, IF
         );
     }
 }
-
-

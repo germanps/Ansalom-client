@@ -13,12 +13,14 @@ export default class EditUser extends React.Component<IEditUserProps, {}> {
             <div className="editUser">
                 <h2 className="title container">Editar usuario</h2>
                 <Query query={USUARIO_QUERY} variables={{id}}>
-                    {({loading, error, data}) => {
+                    {({loading, error, data, refetch}) => {
                         if (loading) return "Cargando...";
                         if (error) return `Error! ${error.message}`;
                         return(
                             <FormEditUser
                                 usuario={data.getUsuario}
+                                history={this.props.history}
+                                refetch={refetch}
                             />
                         );
                     }}
