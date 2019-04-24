@@ -16,7 +16,6 @@ export default class EditUser extends React.Component<IEditUserProps, {}> {
                     {({loading, error, data}) => {
                         if (loading) return "Cargando...";
                         if (error) return `Error! ${error.message}`;
-                        console.log(data);
                         return(
                             <FormEditUser
                                 usuario={data.getUsuario}
