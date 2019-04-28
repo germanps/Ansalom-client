@@ -25,23 +25,27 @@
             }
             
             .name{
-                width: calc(50% - 110px);
+                //width: calc(50% - 110px);
+                width: 30%;
             }
             .email{
-                width: calc(50% - 170px);
+                //width: calc(50% - 170px);
+                width: 30%;
             }
             .downloads{
-                width: 70px;
+                //width: 70px;
+                width: 90px;
             }
             .rol{
-                width: 120px;
+                //width: 120px;
                 text-align: left;
+                width: 110px;
             }
             .action{
-                width: 90px;                
+                //width: 90px;                
             }
             span{
-                width: 25%;
+                //width: 25%;
             }
         }
         span{

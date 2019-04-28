@@ -3,9 +3,12 @@ import { IUserItemProps } from "./IUserItemProps";
 import "./UserItem.scss";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
+import { ELIMINIAR_USUARIO } from './../../mutations';
+import { Mutation } from "react-apollo";
 
 export default class UserItem extends React.Component<IUserItemProps, {}> {
     public render(): React.ReactElement<IUserItemProps> {
+        const id = this.props.usuario.id;
         return (
             <li className="userListItem">
                 <div className="name">
@@ -22,6 +25,21 @@ export default class UserItem extends React.Component<IUserItemProps, {}> {
                     <span>{this.props.usuario.rol}</span>
                 </div>
                 <div className="action">
+                    <Mutation mutation={ELIMINIAR_USUARIO}>                   
+                        {eliminarUsuario  => (
+                            <button
+                                type="button"
+                                className="btn secondary"
+                                onClick={ () => {
+                                    if(window.confirm(`¿Estas seguro que quieres eliminar al cliente? ${this.props.usuario.nombre}`)){
+                                        eliminarUsuario({
+                                            variables: {id}
+                                        })
+                                    }
+                                }}
+                            >Eliminar</button>
+                        )}
+                    </Mutation>
                     <Link to={`/user/edit/${this.props.usuario.id}`} className="btn">Editar</Link>
                 </div>
             </li>

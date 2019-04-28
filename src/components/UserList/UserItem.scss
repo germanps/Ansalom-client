@@ -11,25 +11,35 @@
         background-color: $wildsand;
     }
     .name{
-        width: calc(50% - 110px);
+        //width: calc(50% - 110px);
+        width: 30%;
     }
     .email{
-        width: calc(50% - 170px);
+        //width: calc(50% - 170px);
+        width: 30%;
     }
     .downloads{
-        width: 70px;
+        //width: 70px;
+        width: 90px;
     }
     .rol{
-        width: 120px;
+        //width: 120px;
         text-align: left;
+        width: 110px;
     }
     .action{
-        width: 90px;
+        //width: 90px;
         text-align: right;
+        @include flex(calc(40% - 200px), row, flex-end, center);
+
         .btn{
             @include btnPrimary(auto, $treepoppy, $white, .2rem 1rem);
             text-decoration: none;
             display: inline-block;
+            &.secondary{
+               background: linear-gradient(45deg, transparent 10px, $monza 0) top left;
+               margin-right: .5rem;
+            }
         }
     }
 }

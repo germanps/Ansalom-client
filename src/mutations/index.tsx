@@ -27,3 +27,10 @@ mutation actualizarUsuario($input : UsuarioInput) {
   }
 }
 `;
+
+
+export const ELIMINIAR_USUARIO = gql`
+  mutation eliminarUsuario($id:ID!){
+    eliminarUsuario(id:$id)
+  }
+`;
