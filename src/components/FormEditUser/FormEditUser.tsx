@@ -15,7 +15,7 @@ export default class FormEditUser extends React.Component<IFormEditUserProps, IF
     }
 
     public render(): React.ReactElement<IFormEditUserProps> {
-        const {nombre, apellido, email, rol} = this.props.usuario;
+        const {nombre, apellido, email, rol, descargas} = this.props.usuario;
         return(
             <Mutation
                 mutation={ACTUALIZAR_USUARIO}
@@ -27,9 +27,10 @@ export default class FormEditUser extends React.Component<IFormEditUserProps, IF
                     <form className="form container"
                         onSubmit={e => {
                             e.preventDefault();
-                            const {id, nombre, apellido, email, rol} = this.state.usuario;
+                            const {id, nombre, apellido, email, rol, descargas} = this.state.usuario;
+                            console.log(typeof descargas);
                             const input = {
-                                id, nombre, apellido, email, rol
+                                id, nombre, apellido, email, rol, descargas
                             };
                             // console.log(input);
                             actualizarUsuario({
@@ -112,10 +113,41 @@ export default class FormEditUser extends React.Component<IFormEditUserProps, IF
                             </select>
                         </div>
                     </div>
-                    <div className="form-row">
-                        <input type="submit" value="Guardar usuario"/>
-                    </div>
-                </form>
+
+                    <div className="form-row sm-row">
+                            <div className="form-group">
+                                <label htmlFor="name">Descargas</label>
+                                <input
+                                    id="descargas"
+                                    type="number"
+                                    className="form-control"
+                                    defaultValue={String(descargas)}
+                                    onChange={e => {
+                                        this.setState({
+                                            usuario: {
+                                                ...this.state.usuario,
+                                                descargas: e.target.valueAsNumber
+                                            }
+                                        });
+                                    }}
+                                />
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group">
+                                <button
+                                    type="button"
+                                    onClick={e => {
+                                        e.preventDefault();
+                                        console.log("mostrar comentarios");
+                                    }}
+                                >Ver comentarios</button>
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <input type="submit" value="Guardar usuario"/>
+                        </div>
+                    </form>
             )}
         </Mutation>
         );

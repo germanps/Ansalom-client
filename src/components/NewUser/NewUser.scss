@@ -50,9 +50,7 @@
                     @include placeholder($mineshaft, 1rem);
                     background-color: transparent;
                 }
-                button{
-                    @include btnPrimary(auto, $treepoppy, $white, 0.4rem 1rem);
-                }
+                
             }
             &:nth-child(odd){
                 padding-right: 1rem;

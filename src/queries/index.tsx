@@ -23,11 +23,20 @@ export const USUARIOS_QUERY: Usuario = gql`{
 export const USUARIO_QUERY = gql`
     query consultarUsuario($id:ID){
         getUsuario(id: $id){
-          id
-          nombre
-          apellido
-          email
-          rol
+            id
+            nombre
+            apellido
+            email
+            descargas
+            favoritos{
+                libro
+                autor
+            }
+            rol
+            comentarios{
+                fecha
+                text
+            }
         }
-      }
+      } 
 `;
