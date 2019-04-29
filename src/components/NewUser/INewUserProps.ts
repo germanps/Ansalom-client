@@ -1,3 +1,3 @@
-export interface INewUserProps{
+export interface INewUserProps {
     history?: any;
 }

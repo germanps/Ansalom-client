@@ -8,13 +8,14 @@ import { Mutation } from "react-apollo";
 
 
 export default class NewUser extends React.Component<INewUserProps, INewUserState> {
-    constructor(props: INewUserProps){
+    constructor(props: INewUserProps) {
         super(props);
         this.state = {
             usuario: {
                 nombre: "",
                 apellido: "",
                 email: "",
+                descargas: 0,
                 rol: "",
             },
             error: false
@@ -46,6 +47,7 @@ export default class NewUser extends React.Component<INewUserProps, INewUserStat
                                     nombre,
                                     apellido,
                                     email,
+                                    descargas,
                                     rol
                                 };
                                 crearUsuario({
@@ -127,7 +129,24 @@ export default class NewUser extends React.Component<INewUserProps, INewUserStat
                                 </select>
                             </div>
                         </div>
-                        <div className="form-row">
+                        <div className="form-row sm-row">
+                            <div className="form-group">
+                                <label htmlFor="name">Descargas</label>
+                                <input
+                                    id="descargas"
+                                    type="number"
+                                    className="form-control"
+                                    placeholder="Descargas"
+                                    onChange={e => {
+                                        this.setState({
+                                            usuario: {
+                                                ...this.state.usuario,
+                                                descargas: e.target.valueAsNumber
+                                            }
+                                        });
+                                    }}
+                                />
+                            </div>
                             <input type="submit" value="Guardar usuario"/>
                         </div>
                     </form>

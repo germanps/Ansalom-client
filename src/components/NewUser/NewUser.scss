@@ -16,6 +16,9 @@
             width: 50%;
             box-sizing: border-box;
             margin-bottom: 1rem;
+            &.sm-row{
+                width: auto;
+            }
             &:last-child{
                 margin-bottom: 0;
             }
@@ -47,7 +50,9 @@
                     @include placeholder($mineshaft, 1rem);
                     background-color: transparent;
                 }
-                
+                button{
+                    @include btnPrimary(auto, $treepoppy, $white, 0.4rem 1rem);
+                }
             }
             &:nth-child(odd){
                 padding-right: 1rem;
@@ -56,7 +61,7 @@
                 padding-left: 1rem;
             }
             [type="submit"]{
-                @include btnPrimary(auto, $treepoppy, $white, 0.4rem 1rem);
+                @include btnPrimary(auto, $deepsea, $white, 0.4rem 1rem);
             }
         }
         
