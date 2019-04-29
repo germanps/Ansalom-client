@@ -13,9 +13,10 @@
         .form-row{
             width: 50%;
             box-sizing: border-box;
-            margin-bottom: 1rem;
+            //margin-bottom: 1rem;
             &.sm-row{
                 width: auto;
+                
             }
             &:last-child{
                 margin-bottom: 0;
@@ -62,6 +63,7 @@
             }
             [type="submit"]{
                 @include btnPrimary(auto, $deepsea, $white, 0.4rem 1rem);
+                margin-top: 1rem;
             }
         }
         
