@@ -135,13 +135,13 @@ export default class FormEditUser extends React.Component<IFormEditUserProps, IF
                         </div>
                         <div className="form-row">
                             <div className="form-group">
-                                <button
+                                {/* <button
                                     type="button"
                                     onClick={e => {
                                         e.preventDefault();
                                         console.log("mostrar comentarios");
                                     }}
-                                >Ver comentarios</button>
+                                >Ver comentarios</button> */}
                             </div>
                         </div>
                         <div className="form-row">

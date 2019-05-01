@@ -1,12 +1,32 @@
 import * as React from "react";
 import { IUsersProps } from "./IUsersProps";
+import { IUserState } from "./IUserState";
 import "./Users.scss";
 import { Query } from "react-apollo";
 import { USUARIOS_QUERY } from "./../../queries";
 import UserItem from "../UserList/UserItem";
+import UserModalView from "../UserModalView/UserModalView";
 
 
-export default class Users extends React.Component<IUsersProps, {}> {
+export default class Users extends React.Component<IUsersProps, IUserState> {
+    constructor(props: IUsersProps){
+        super(props);
+        this.state = {
+            showModal: false,
+            user: {}
+        }
+    }
+
+    private controlModal(showModal){
+        this.setState({showModal});
+    }
+    
+    private showModalUserInfo(user){
+        this.setState({
+            showModal: true,
+            user
+        })
+    }
     public render(): React.ReactElement<IUsersProps> {
         return (
             <>
@@ -28,7 +48,7 @@ export default class Users extends React.Component<IUsersProps, {}> {
                                     </li>
                                     {
                                         data.getUsuarios.map(item => {
-                                            return <UserItem key={item.id} usuario={item} /> ;
+                                            return <UserItem key={item.id} usuario={item} onUserInfoView={this.showModalUserInfo.bind(this)}/> ;
                                         })
                                     }
                                 </ul>
@@ -36,6 +56,7 @@ export default class Users extends React.Component<IUsersProps, {}> {
                         );
                     }}
                 </Query>
+                {this.state.showModal ? <UserModalView user={this.state.user} _handleModalAppear={ () => this.controlModal(false)}/> : ""}
             </>
         );
     }

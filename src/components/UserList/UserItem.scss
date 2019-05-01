@@ -36,6 +36,10 @@
             @include btnPrimary(auto, $treepoppy, $white, .2rem 1rem);
             text-decoration: none;
             display: inline-block;
+            &.normal{
+                background: linear-gradient(45deg, transparent 10px, $deepsea 0) top left;
+                margin-left: .5rem;
+            }
             &.secondary{
                background: linear-gradient(45deg, transparent 10px, $monza 0) top left;
                margin-right: .5rem;

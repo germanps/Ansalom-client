@@ -11,7 +11,9 @@ export default class Header extends React.Component<IHeaderProps, {}> {
             <header className="header">
                 <div className="logoWrapper">
                     <div className="logo">
-                        <img src={reactLogo}/>
+                        <Link to="/">
+                            <img src={reactLogo}/>
+                        </Link>
                     </div>
                     <h1 className="main-title">{this.props.title}</h1>
                 </div>

@@ -1,0 +1,89 @@
+@import "../../assets/scss/base.scss";
+h2,h3,p,span{
+    margin: 0;
+}
+
+.modalUserInfo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(96, 96, 96, 0.6);
+    
+    .modalWrapper{
+        top: 2rem;
+        left: 50%;
+        transform: translate(-50%, 2rem);
+        position: absolute;
+        background: $white;
+        width: 95%;
+        max-width: 800px;
+        box-shadow: 0 0 20px 3px rgba(255, 255, 255, 0.35);
+        padding: 1rem;
+
+
+        .modalHeader{
+            @include flex(100%, row, flex-start, center);
+            margin-bottom: 1rem;
+            h2{
+                text-align: center;
+                width: calc(100% - 16px);
+            }
+            i{
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+        }
+        h3{
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        .modalContent{
+            
+            .userList{
+                column-count: 2;
+                margin-bottom: 1rem;
+                padding: 0;
+                list-style: none;
+                margin: 0;
+                .listItem{
+                    margin-bottom: 1rem;
+                }
+            }
+            .detailsList{
+                column-count: 2;
+                padding: 0;
+                margin:0;
+                .listItem{
+                    margin: 0;
+                    -webkit-column-break-inside: avoid; /* Chrome, Safari */
+                    page-break-inside: avoid;           /* Theoretically FF 20+ */
+                    break-inside: avoid-column;         /* IE 11 */
+                    display:table;   
+
+                    .socialList{
+                        list-style-type: decimal-leading-zero;
+                        padding-left: 1.2rem;
+                    }
+                    
+                    span{
+                        margin-bottom: 1rem;
+                    }
+                }
+               
+            }
+        }
+    }
+
+
+    //helper class
+    .data{
+        font-size: 1rem;
+        color: $scorpion;
+    }
+    .title{
+        font-weight: bold;
+        font-size: 1rem;
+    }
+}

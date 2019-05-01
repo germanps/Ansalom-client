@@ -7,6 +7,9 @@ import { ELIMINIAR_USUARIO } from './../../mutations';
 import { Mutation } from "react-apollo";
 
 export default class UserItem extends React.Component<IUserItemProps, {}> {
+    private _handleModalUser(){
+        this.props.onUserInfoView(this.props.usuario)
+    }
     public render(): React.ReactElement<IUserItemProps> {
         const id = this.props.usuario.id;
         return (
@@ -41,6 +44,11 @@ export default class UserItem extends React.Component<IUserItemProps, {}> {
                         )}
                     </Mutation>
                     <Link to={`/user/edit/${this.props.usuario.id}`} className="btn">Editar</Link>
+                    <button
+                        type="button"
+                        className="btn normal"
+                        onClick={this._handleModalUser.bind(this)}
+                    >Ver</button>
                 </div>
             </li>
         );

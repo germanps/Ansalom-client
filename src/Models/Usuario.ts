@@ -1,7 +1,7 @@
 import Favorito from "./Favorito";
 import Comentario from "./Comentario";
 export default class Usuario {
-    public id?: Object;
+    public id?: string;
     public nombre?: string;
     public apellido?: string;
     public email?: string;
