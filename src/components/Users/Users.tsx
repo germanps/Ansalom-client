@@ -6,6 +6,7 @@ import { Query } from "react-apollo";
 import { USUARIOS_QUERY } from "./../../queries";
 import UserItem from "../UserList/UserItem";
 import UserModalView from "../UserModalView/UserModalView";
+import Pagitation from "./../Pagination/Pagination";
 
 
 export default class Users extends React.Component<IUsersProps, IUserState> {
@@ -13,19 +14,23 @@ export default class Users extends React.Component<IUsersProps, IUserState> {
         super(props);
         this.state = {
             showModal: false,
-            user: {}
-        }
+            user: {},
+            paginador: {
+                offset: 0,
+                actual: 1
+            }
+        };
     }
 
     private controlModal(showModal){
         this.setState({showModal});
     }
-    
+
     private showModalUserInfo(user){
         this.setState({
             showModal: true,
             user
-        })
+        });
     }
     public render(): React.ReactElement<IUsersProps> {
         return (
@@ -52,6 +57,7 @@ export default class Users extends React.Component<IUsersProps, IUserState> {
                                         })
                                     }
                                 </ul>
+                                <Pagitation actual={this.state.paginador.actual}/>
                             </div>
                         );
                     }}

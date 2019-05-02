@@ -3,7 +3,7 @@ import { IUserItemProps } from "./IUserItemProps";
 import "./UserItem.scss";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
-import { ELIMINIAR_USUARIO } from './../../mutations';
+import { ELIMINIAR_USUARIO } from "./../../mutations";
 import { Mutation } from "react-apollo";
 
 export default class UserItem extends React.Component<IUserItemProps, {}> {
@@ -28,7 +28,7 @@ export default class UserItem extends React.Component<IUserItemProps, {}> {
                     <span>{this.props.usuario.rol}</span>
                 </div>
                 <div className="action">
-                    <Mutation mutation={ELIMINIAR_USUARIO}>                   
+                    <Mutation mutation={ELIMINIAR_USUARIO}>
                         {eliminarUsuario  => (
                             <button
                                 type="button"
