@@ -1,4 +1,5 @@
 export interface IPaginationProps {
     actual: number;
-    totalUsuarios: string;
+    totalUsuarios: number;
+    limite: number;
 }

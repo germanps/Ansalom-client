@@ -10,7 +10,7 @@ import Pagitation from "./../Pagination/Pagination";
 
 
 export default class Users extends React.Component<IUsersProps, IUserState> {
-    constructor(props: IUsersProps){
+    constructor(props: IUsersProps) {
         super(props);
         this.state = {
             showModal: false,
@@ -21,6 +21,8 @@ export default class Users extends React.Component<IUsersProps, IUserState> {
             }
         };
     }
+
+    private limite = 5;
 
     private controlModal(showModal){
         this.setState({showModal});
@@ -43,7 +45,7 @@ export default class Users extends React.Component<IUsersProps, IUserState> {
                         return(
                             <div className="container">
                                 <h2 className="title">Listado usuarios</h2>
-                                <ul className="userList"> 
+                                <ul className="userList">
                                     <li className="listHeadings">
                                         <span className="name">Nombre</span>
                                         <span className="email">Email</span>
@@ -60,6 +62,7 @@ export default class Users extends React.Component<IUsersProps, IUserState> {
                                 <Pagitation
                                     actual={this.state.paginador.actual}
                                     totalUsuarios={data.totalUsuarios}
+                                    limite={this.limite}
                                 />
                             </div>
                         );
