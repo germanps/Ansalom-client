@@ -18,6 +18,7 @@ export const USUARIOS_QUERY: Usuario = gql`{
             text
         }
     }
+    totalUsuarios
 }`;
 
 export const USUARIO_QUERY = gql`
@@ -38,5 +39,5 @@ export const USUARIO_QUERY = gql`
                 text
             }
         }
-      } 
+      }
 `;

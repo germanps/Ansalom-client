@@ -38,12 +38,12 @@ export default class Users extends React.Component<IUsersProps, IUserState> {
                 <Query query={USUARIOS_QUERY} pollInterval={1000}>
                     {({ loading, error, data, startPolling, stopPolling }) => {
                         if (loading) return "Cargando...";
-                        if (error) return `Error ${error.message}`
+                        if (error) return `Error ${error.message}`;
                         console.log(data);
                         return(
                             <div className="container">
                                 <h2 className="title">Listado usuarios</h2>
-                                <ul className="userList">
+                                <ul className="userList"> 
                                     <li className="listHeadings">
                                         <span className="name">Nombre</span>
                                         <span className="email">Email</span>
@@ -57,7 +57,10 @@ export default class Users extends React.Component<IUsersProps, IUserState> {
                                         })
                                     }
                                 </ul>
-                                <Pagitation actual={this.state.paginador.actual}/>
+                                <Pagitation
+                                    actual={this.state.paginador.actual}
+                                    totalUsuarios={data.totalUsuarios}
+                                />
                             </div>
                         );
                     }}
