@@ -1,25 +1,27 @@
 import gql from "graphql-tag";
 import Usuario from "./../Models/Usuario";
 
-export const USUARIOS_QUERY: Usuario = gql`{
-	getUsuarios{
-        id
-        nombre
-        apellido
-        email
-        descargas
-        favoritos{
-            libro
-            autor
+export const USUARIOS_QUERY: Usuario = gql`
+	query getUsuarios($limite: Int, $offset: Int){
+        getUsuarios(limite: $limite, offset: $offset){
+            id
+            nombre
+            apellido
+            email
+            descargas
+            favoritos{
+                libro
+                autor
+            }
+            rol
+            comentarios{
+                fecha
+                text
+            }
         }
-        rol
-        comentarios{
-            fecha
-            text
-        }
+        totalUsuarios
     }
-    totalUsuarios
-}`;
+`;
 
 export const USUARIO_QUERY = gql`
     query consultarUsuario($id:ID){

@@ -13,11 +13,11 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
     public render(): React.ReactElement<IPaginationProps> {
         const {actual} = this.props;
         const paginas = this.state.paginas;
-        const btnAnterior = (actual > 1) ? <button type="button" className="btn">Anterior</button> : "";
-        const btnSiguiente = (actual !== paginas) ? <button type="button" className="btn">Siguiente</button> : "";
+        const btnAnterior = (actual > 1) ? <button type="button" onClick={this.props.paginaAnterior} className="btn">Anterior</button> : "";
+        const btnSiguiente = (actual !== paginas) ? <button type="button" onClick={this.props.paginaSiguiente} className="btn">Siguiente</button> : "";
 
         return(
-            <div className="pagination">{btnAnterior}{btnSiguiente}</div>
+            <div className="pagination">{btnAnterior} {btnSiguiente}</div>
         );
     }
 }

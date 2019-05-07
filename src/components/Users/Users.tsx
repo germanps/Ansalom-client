@@ -24,20 +24,36 @@ export default class Users extends React.Component<IUsersProps, IUserState> {
 
     private limite = 5;
 
-    private controlModal(showModal){
+    private controlModal(showModal) {
         this.setState({showModal});
     }
 
-    private showModalUserInfo(user){
+    private showModalUserInfo(user) {
         this.setState({
             showModal: true,
             user
         });
     }
+    private previousPage = () => {
+        this.setState({
+            paginador: {
+                offset: this.state.paginador.offset - this.limite,
+                actual: this.state.paginador.actual - 1
+            }
+        });
+    }
+    private nextPage = () => {
+        this.setState({
+            paginador: {
+                offset: this.state.paginador.offset + this.limite,
+                actual: this.state.paginador.actual + 1
+            }
+        });
+    }
     public render(): React.ReactElement<IUsersProps> {
         return (
             <>
-                <Query query={USUARIOS_QUERY} pollInterval={1000}>
+                <Query query={USUARIOS_QUERY} pollInterval={1000} variables={{limite: this.limite, offset: this.state.paginador.offset}}>
                     {({ loading, error, data, startPolling, stopPolling }) => {
                         if (loading) return "Cargando...";
                         if (error) return `Error ${error.message}`;
@@ -63,6 +79,8 @@ export default class Users extends React.Component<IUsersProps, IUserState> {
                                     actual={this.state.paginador.actual}
                                     totalUsuarios={data.totalUsuarios}
                                     limite={this.limite}
+                                    paginaSiguiente={this.nextPage}
+                                    paginaAnterior={this.previousPage}
                                 />
                             </div>
                         );

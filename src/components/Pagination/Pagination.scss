@@ -1,1 +1,11 @@
 @import "./../../assets/scss/base.scss";
+
+.pagination{
+    @include flex(auto, row, center, center);
+    .btn{
+        @include btnPrimary(auto, $sahara, $white, .5rem);
+        &:first-of-type{
+            margin-right: 1rem;
+        }
+    }
+}
