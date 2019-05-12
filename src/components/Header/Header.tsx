@@ -24,6 +24,7 @@ export default class Header extends React.Component<IHeaderProps, {}> {
                         <li>Series</li>
                     </ul>
                     <Link to="/user/new" className="btn">Nuevo usuario</Link>
+                    <Link to="/book/new" className="btn">Nuevo libro</Link>
                 </nav>
             </header>
         );

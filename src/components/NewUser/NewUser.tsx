@@ -2,7 +2,6 @@ import * as React from "react";
 import { INewUserProps } from "./INewUserProps";
 import "./NewUser.scss";
 import { INewUserState } from "./INewUserState";
-import Usuario from "./../../Models/Usuario";
 import { NUEVO_USUARIO } from "./../../mutations";
 import { Mutation } from "react-apollo";
 

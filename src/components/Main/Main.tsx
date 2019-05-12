@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch, HashRouter } from "react-router
 import Users from "./../Users/Users";
 import NewUser from "./../NewUser/NewUser";
 import EditUser from "./../EditUser/EditUser";
+import NewBook from "./../NewBook/NewBook";
 
 export default class Main extends React.Component<IMainProps, {}> {
     public render(): React.ReactElement<IMainProps> {
@@ -18,6 +19,7 @@ export default class Main extends React.Component<IMainProps, {}> {
                             <Route exact path="/" component={Users} />
                             <Route exact path="/user/new" component={NewUser} />
                             <Route exact path="/user/edit/:id" component={EditUser} />
+                            <Route exact path="/book/new" component={NewBook} />
                         </Switch>
                     </>
                 </HashRouter>

@@ -1,0 +1,59 @@
+@import './../../assets//scss/base.scss';
+.newBook{
+    .title{
+        @include title(1.5rem,$mineshaft,italic,700);
+    }
+    .form-error{
+        font-weight: 700;
+        color: $monza * 1.5;
+    }
+    .form{
+        @include flex(100%, row, flex-start, flex-start);
+        flex-wrap: wrap;
+
+        
+        .form-row{
+            width: 50%;
+            box-sizing: border-box;
+            //margin-bottom: 1rem;
+            &.sm-row{
+                width: auto;
+                margin-bottom: 1rem;
+
+            }
+            &:last-child{
+                margin-bottom: 0;
+            }
+            .form-group{
+                margin-bottom: 1rem;
+
+                label{
+                    width: 120px;
+                    display: inline-block;
+                    color: $mineshaft;
+                    font-size: 1.1rem;
+                }
+                input{
+                    width: calc(100% - 140px);
+                    height: 25px;
+                    @include placeholder($mineshaft, 1rem);
+                    padding-left: .5rem;
+                    color: $mineshaft;
+                    font-family: 'Cormorant Garamond', serif;
+                    font-size: 1.1rem;
+                }                
+            }
+            &:nth-child(odd){
+                padding-right: 1rem;
+            }
+            &:nth-child(even){
+                padding-left: 1rem;
+            }
+            [type="submit"]{
+                @include btnPrimary(auto, $deepsea, $white, 0.4rem 1rem);
+                margin-top: 1rem;
+            }
+        }
+        
+    }
+}
