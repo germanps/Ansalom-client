@@ -28,7 +28,7 @@
                 margin-bottom: 1rem;
 
                 label{
-                    width: 120px;
+                    width: 128px;
                     display: inline-block;
                     color: $mineshaft;
                     font-size: 1.1rem;
@@ -41,7 +41,26 @@
                     color: $mineshaft;
                     font-family: 'Cormorant Garamond', serif;
                     font-size: 1.1rem;
-                }                
+                }
+                .parrafo{
+                    @include flex(100%, row, space-between, center);
+                    padding-left: 2rem;
+                    box-sizing: border-box;
+                    margin-bottom: 1rem;
+                    span{
+                        width: 70px;
+                    }
+                    input{
+                        width: calc(100% - 210px);
+                    }
+                    .delete{
+                        @include btnPrimary(auto, $monza, $white, .4rem 1rem);
+                        display: inline-block;
+                        text-decoration: none;
+                        text-align: center;
+                    }
+                    
+                }             
             }
             &:nth-child(odd){
                 padding-right: 1rem;

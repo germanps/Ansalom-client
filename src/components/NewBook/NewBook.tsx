@@ -21,19 +21,18 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
             },
             error: false,
             parrafos: []
-        }
-    } 
+        };
+    }
 
     private nuevoParrafo = () => {
         this.setState({
             parrafos : this.state.parrafos.concat([{parrafo: ""}])
-        })
+        });
     }
     private borrarParrafo = i => () => {
-        
         this.setState({
             parrafos: this.state.parrafos.filter((parrafo, index) => i !== index)
-        })
+        });
     }
     private leerParrafo = i => e => {
         const nuevoParrafo = this.state.parrafos.map((parrafo, index) => {
@@ -43,7 +42,7 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
             return {
                 ...parrafo,
                 parrafo: e.currentTarget.value
-            } 
+            }
         });
         this.setState({
             parrafos: nuevoParrafo
@@ -206,7 +205,6 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
                     <div className="form-row">
                         <div className="form-group">
                             <label>Sinopsis</label>
-                            
                             {
                                this.state.parrafos.map((input, index) => (
                                     <div key={index} className="parrafo">
@@ -216,8 +214,8 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
                                             className="form-control"
                                             onChange={this.leerParrafo(index)}
                                             value={input.parrafo}
-                                        />                           
-                                        <Button title="Borrar párrafo" background="secondary" _event={this.borrarParrafo(index)}/>
+                                        />
+                                        <Button title="Borrar párrafo" background="delete" _event={this.borrarParrafo(index)}/>
                                     </div>
                                 ))
                             }
@@ -227,7 +225,6 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
                         </div>
                         <input type="submit" value="Guardar usuario"/>
                     </div>
-                    
                 </form>
             </div>
         )
