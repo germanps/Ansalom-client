@@ -24,6 +24,18 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
         };
     }
 
+    private actualizarState = e => {
+        const {name, value} = e.target;
+        console.log(`${name}: ${value}`);
+        this.setState({
+            libro: {
+               ...this.state.libro,
+               [name] :  value
+            }
+        });
+    }
+
+
     private nuevoParrafo = () => {
         this.setState({
             parrafos : this.state.parrafos.concat([{parrafo: ""}])
@@ -52,7 +64,7 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
     public render(): React.ReactElement<INewBookProps> {
         return(
             <div className="newBook">
-            <h2 className="title container">Nuevo libro</h2>
+                <h2 className="title container">Nuevo libro</h2>
                 <form className="form container"
                     /* onSubmit={e => {
                         e.preventDefault();
@@ -81,16 +93,10 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
                             <input
                                 id="title"
                                 type="text"
+                                name="titulo"
                                 className="form-control"
                                 placeholder="Título"
-                                /*  onChange={e => {
-                                    this.setState({
-                                        usuario: {
-                                            ...this.state.usuario,
-                                            nombre: e.target.value
-                                        }
-                                    });
-                                }} */
+                                onChange={this.actualizarState}
                             />
                         </div>
                         <div className="form-group">
@@ -98,16 +104,10 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
                             <input
                                 id="surname"
                                 type="text"
+                                name="autor"
                                 className="form-control"
                                 placeholder="Apellido"
-                                /* onChange={e => {
-                                    this.setState({
-                                        usuario: {
-                                            ...this.state.usuario,
-                                            apellido: e.target.value
-                                        }
-                                    });
-                                }} */
+                                onChange={this.actualizarState}
                             />
                         </div>
                     </div>
@@ -117,16 +117,10 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
                             <input
                                 id="genero"
                                 type="text"
+                                name="genero"
                                 className="form-control"
                                 placeholder="Género"
-                                /* onChange={e => {
-                                    this.setState({
-                                        usuario: {
-                                            ...this.state.usuario,
-                                            email: e.target.value
-                                        }
-                                    });
-                                }} */
+                                onChange={this.actualizarState}
                             />
                         </div>
                         <div className="form-group">
@@ -134,16 +128,10 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
                             <input
                                 id="coleccion"
                                 type="text"
+                                name="coleccion"
                                 className="form-control"
                                 placeholder="Colección"
-                                /*  onChange={e => {
-                                    this.setState({
-                                        usuario: {
-                                            ...this.state.usuario,
-                                            descargas: e.target.valueAsNumber
-                                        }
-                                    });
-                                }} */
+                                onChange={this.actualizarState}
                             />
                         </div>
                     </div>
@@ -153,16 +141,10 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
                             <input
                                 id="epub"
                                 type="text"
+                                name="email"
                                 className="form-control"
                                 placeholder="Epub"
-                                /* onChange={e => {
-                                    this.setState({
-                                        usuario: {
-                                            ...this.state.usuario,
-                                            email: e.target.value
-                                        }
-                                    });
-                                }} */
+                                onChange={this.actualizarState}
                             />
                         </div>
                         <div className="form-group">
@@ -170,16 +152,10 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
                             <input
                                 id="cover"
                                 type="text"
+                                name="cover"
                                 className="form-control"
                                 placeholder="Cover"
-                                /*  onChange={e => {
-                                    this.setState({
-                                        usuario: {
-                                            ...this.state.usuario,
-                                            descargas: e.target.valueAsNumber
-                                        }
-                                    });
-                                }} */
+                                onChange={this.actualizarState}
                             />
                         </div>
                     </div>
@@ -189,16 +165,10 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
                             <input
                                 id="pdf"
                                 type="text"
+                                name="pdf"
                                 className="form-control"
                                 placeholder="Pdf"
-                                /* onChange={e => {
-                                    this.setState({
-                                        usuario: {
-                                            ...this.state.usuario,
-                                            email: e.target.value
-                                        }
-                                    });
-                                }} */
+                                onChange={this.actualizarState}
                             />
                         </div>
                     </div>
