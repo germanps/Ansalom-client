@@ -34,3 +34,14 @@ export const ELIMINIAR_USUARIO = gql`
     eliminarUsuario(id:$id)
   }
 `;
+
+export const NUEVO_LIBRO = gql`
+  mutation nuevoLibro($input : LibroInput){
+    nuevoLibro(input: $input){
+      id
+      titulo
+      autor
+      coleccion
+    }
+  }
+`;

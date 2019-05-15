@@ -5,5 +5,5 @@ interface Parrafo {
 export interface INewBookState {
     libro: Book;
     error: boolean;
-    parrafos: any;
+    sinopsis: any;
 }
