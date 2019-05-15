@@ -71,6 +71,10 @@
             [type="submit"]{
                 @include btnPrimary(auto, $deepsea, $white, 0.4rem 1rem);
                 margin-top: 1rem;
+                &:disabled{
+                    cursor: default;
+                    opacity: .7;
+                }
             }
         }
         

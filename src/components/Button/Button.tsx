@@ -10,6 +10,7 @@ export default class Button extends React.Component<IButtonProps, {}> {
                 onClick={this.props._event ? this.props._event : ""}
                 type="button"
                 className={this.props.background}
+                disabled={this.props._disabled}
             >
                 {this.props.title}
             </button>

@@ -61,6 +61,20 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
         });
     }
 
+    private validaForm = () => {
+        const {
+            titulo,
+            autor,
+            genero,
+            coleccion,
+            cover,
+            epub,
+            pdf
+        } = this.state.libro;
+        const error = !titulo || !autor || !genero || !coleccion || !cover || !epub || !pdf;
+        return error;
+    }
+
     public render(): React.ReactElement<INewBookProps> {
         return(
             <div className="newBook">
@@ -89,7 +103,7 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
                 >
                     <div className="form-row">
                         <div className="form-group">
-                            <label htmlFor="name">Título</label>
+                            <label htmlFor="title">Título</label>
                             <input
                                 id="title"
                                 type="text"
@@ -100,9 +114,9 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
                             />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="surname">Autor</label>
+                            <label htmlFor="autor">Autor</label>
                             <input
-                                id="surname"
+                                id="autor"
                                 type="text"
                                 name="autor"
                                 className="form-control"
@@ -113,7 +127,7 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
                     </div>
                     <div className="form-row">
                         <div className="form-group">
-                            <label htmlFor="email">Género</label>
+                            <label htmlFor="genero">Género</label>
                             <input
                                 id="genero"
                                 type="text"
@@ -124,7 +138,7 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
                             />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="name">Colección</label>
+                            <label htmlFor="coleccion">Colección</label>
                             <input
                                 id="coleccion"
                                 type="text"
@@ -137,18 +151,18 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
                     </div>
                     <div className="form-row">
                         <div className="form-group">
-                            <label htmlFor="email">Epub</label>
+                            <label htmlFor="epub">Epub</label>
                             <input
                                 id="epub"
                                 type="text"
-                                name="email"
+                                name="epub"
                                 className="form-control"
                                 placeholder="Epub"
                                 onChange={this.actualizarState}
                             />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="name">Cover</label>
+                            <label htmlFor="cover">Cover</label>
                             <input
                                 id="cover"
                                 type="text"
@@ -161,7 +175,7 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
                     </div>
                     <div className="form-row">
                         <div className="form-group">
-                            <label>Pdf</label>
+                            <label htmlFor="pdf">Pdf</label>
                             <input
                                 id="pdf"
                                 type="text"
@@ -191,12 +205,16 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
                             }
                         </div>
                         <div className="form-group">
-                            <Button title="Agregar párrafo" background="secondary" _event={this.nuevoParrafo}/>
+                            <Button
+                                title="Agregar párrafo"
+                                background="secondary"
+                                _event={this.nuevoParrafo}
+                            />
                         </div>
-                        <input type="submit" value="Guardar usuario"/>
+                        <input  disabled={this.validaForm()} type="submit" value="Guardar usuario"/>
                     </div>
                 </form>
             </div>
-        )
+        );
     }
 }
