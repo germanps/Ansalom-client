@@ -181,12 +181,19 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
                                 this.state.sinopsis.map((input, index) => (
                                         <div key={index} className="parrafo">
                                             <span>Párrafo {index + 1}</span>
-                                            <input
+                                            {/* <input
                                                 id="sinopsis"
                                                 className="form-control"
                                                 onChange={this.leerParrafo(index)}
                                                 value={input.parrafo}
-                                            />
+                                            /> */}
+                                             <textarea
+                                                id="sinopsis"
+                                                className="form-control"
+                                                onChange={this.leerParrafo(index)}
+                                            >
+                                                {input.parrafo}
+                                            </textarea>
                                             <Button title="Borrar párrafo" background="delete" _event={this.borrarParrafo(index)}/>
                                         </div>
                                     ))

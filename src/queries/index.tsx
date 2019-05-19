@@ -51,6 +51,7 @@ export const OBTENER_LIBROS = gql`
             id
             titulo
             autor
+            genero
             cover
             coleccion
             epub
@@ -65,8 +66,10 @@ export const OBTENER_LIBROS = gql`
 export const OBTENER_LIBRO = gql`
     query obtenerLibro($id : ID!){
         obtenerLibro(id: $id){
+            id
             titulo
             autor
+            genero
             cover
             coleccion
             epub

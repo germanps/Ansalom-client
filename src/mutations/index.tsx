@@ -55,15 +55,20 @@ export const ELIMINAR_LIBRO = gql`
 `;
 
 export const ACTUALIZAR_LIBRO: Libro = gql`
-  mutation actualizarLibro($input : LibroInput) {
-      actualizarLibro(input: $input){
-      titulo
-      autor
-      genero
-      coleccion
-      sinopsis{
-        parrafo
-      }
+  mutation actualizarLibro($input: LibroInput){
+  actualizarLibro(input: $input){
+    id
+    titulo
+    autor
+    genero
+    coleccion
+    cover
+    epub
+    pdf
+    sinopsis{
+      parrafo
     }
   }
+}
 `;
+

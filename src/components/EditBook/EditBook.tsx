@@ -1,8 +1,10 @@
 import * as React from "react";
 import "./EditBook.tsx";
+import "./EditBook.scss";
 import {IEditBookProps} from "./IEditBookProps";
 import {OBTENER_LIBRO} from "../../queries";
 import { Query } from "react-apollo";
+import FormEditBook from "../FormEditBook/FormEditBook";
 
 
 export default class EditBook extends React.Component<IEditBookProps, {}> {
@@ -18,7 +20,11 @@ export default class EditBook extends React.Component<IEditBookProps, {}> {
                         if (error) return `Error! ${error.message}`;
                         console.log(data)
                         return(
-                            <div>data</div>
+                            <FormEditBook
+                                book={data.obtenerLibro}
+                                history={this.props.history}
+                                refetch={refetch}
+                            />
                         );
                     }}
                 </Query>
