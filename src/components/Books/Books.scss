@@ -1,0 +1,50 @@
+@import './../../assets//scss/base.scss';
+.container{
+    width: 100%;
+    max-width: 1650px;
+    margin: auto;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+    .title{
+        @include title(1.5rem, $mineshaft, italic, 700);
+        margin-top: 0;
+    }
+    .booksList{
+        padding: 0;
+        list-style: none;
+        @include flex(100%, column, flex-start, flex-start);
+        border:1px dashed $iron;
+        .listHeadings{
+            @include flex(100%, row, flex-start, flex-start);
+            padding: .5rem;
+            box-sizing: border-box;
+            background-color: $mineshaft;
+            color: $white;
+
+            span{
+                font-size: 1.1rem;
+            }
+            
+            .bookTitle{
+                //width: calc(50% - 110px);
+                width: 30%;
+            }
+            .author{
+                //width: calc(50% - 170px);
+                width: 30%;
+            }
+            .collection{
+                //width: 70px;
+                width: 90px;
+            }
+
+            .action{
+                //width: 90px;                
+            }
+        }
+        span{
+            font-size: 1rem;
+        }
+        
+    }
+}

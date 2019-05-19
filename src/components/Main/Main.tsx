@@ -7,6 +7,8 @@ import Users from "./../Users/Users";
 import NewUser from "./../NewUser/NewUser";
 import EditUser from "./../EditUser/EditUser";
 import NewBook from "./../NewBook/NewBook";
+import Books from "../Books/Books";
+import EditBook from "../EditBook/EditBook";
 
 export default class Main extends React.Component<IMainProps, {}> {
     public render(): React.ReactElement<IMainProps> {
@@ -19,7 +21,9 @@ export default class Main extends React.Component<IMainProps, {}> {
                             <Route exact path="/" component={Users} />
                             <Route exact path="/user/new" component={NewUser} />
                             <Route exact path="/user/edit/:id" component={EditUser} />
+                            <Route exact path="/book/edit/:id" component={EditBook} />
                             <Route exact path="/book/new" component={NewBook} />
+                            <Route exact path="/books" component={Books} />
                         </Switch>
                     </>
                 </HashRouter>

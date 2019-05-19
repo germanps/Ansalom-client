@@ -75,7 +75,7 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
                 <h2 className="title container">Nuevo libro</h2>
                 <Mutation
                     mutation={ NUEVO_LIBRO }
-                    onCompleted={ () => this.props.history.push("/")}
+                    onCompleted={ () => this.props.history.push("/books")}
                 >
                 {nuevoLibro => (
                     <form className="form container"
@@ -199,7 +199,7 @@ export default class NewBook extends React.Component<INewBookProps, INewBookStat
                                     _event={this.nuevoParrafo}
                                 />
                             </div>
-                            <input  disabled={this.validaForm()} type="submit" value="Guardar usuario"/>
+                            <input  disabled={this.validaForm()} type="submit" value="Guardar libro"/>
                         </div>
                     </form>
                 )}

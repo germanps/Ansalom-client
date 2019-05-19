@@ -1,0 +1,48 @@
+@import './../../assets//scss/base.scss';
+.bookListItem{
+    @include flex(100%, row, flex-start, center);
+    border-bottom: 1px dashed $iron;
+    padding: .5rem;
+    box-sizing: border-box;
+    &:last-child{
+        border: none;
+    }
+    &:nth-child(odd){
+        background-color: $wildsand;
+    }
+    .bookTitle{
+        //width: calc(50% - 110px);
+        width: 30%;
+    }
+    .author{
+        //width: calc(50% - 170px);
+        width: 30%;
+    }
+    .colection{
+        //width: 90px;
+    }
+    .rol{
+        //width: 120px;
+        text-align: left;
+        width: 110px;
+    }
+    .action{
+        //width: 90px;
+        text-align: right;
+        @include flex(calc(40% - 200px), row, flex-end, center);
+
+        .btn{
+            @include btnPrimary(auto, $treepoppy, $white, .2rem 1rem);
+            text-decoration: none;
+            display: inline-block;
+            &.normal{
+                background: linear-gradient(45deg, transparent 10px, $deepsea 0) top left;
+                margin-left: .5rem;
+            }
+            &.secondary{
+               background: linear-gradient(45deg, transparent 10px, $monza 0) top left;
+               margin-right: .5rem;
+            }
+        }
+    }
+}

@@ -4,7 +4,7 @@ import { IUserState } from "./IUserState";
 import "./Users.scss";
 import { Query } from "react-apollo";
 import { USUARIOS_QUERY } from "./../../queries";
-import UserItem from "../UserList/UserItem";
+import UserItem from "../UserItem/UserItem";
 import UserModalView from "../UserModalView/UserModalView";
 import Pagitation from "./../Pagination/Pagination";
 

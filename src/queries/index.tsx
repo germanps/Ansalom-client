@@ -43,3 +43,37 @@ export const USUARIO_QUERY = gql`
         }
       }
 `;
+
+//Libros
+export const OBTENER_LIBROS = gql`
+    query {
+        obtenerLibros{
+            id
+            titulo
+            autor
+            cover
+            coleccion
+            epub
+            pdf
+            sinopsis {
+                parrafo
+            }
+        }
+    }
+`;
+
+export const OBTENER_LIBRO = gql`
+    query obtenerLibro($id : ID!){
+        obtenerLibro(id: $id){
+            titulo
+            autor
+            cover
+            coleccion
+            epub
+            pdf
+            sinopsis {
+                parrafo
+            }
+        }
+    }
+`;

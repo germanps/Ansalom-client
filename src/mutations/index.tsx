@@ -1,5 +1,6 @@
 import gql from "graphql-tag";
 import Usuario from "./../Models/Usuario";
+import Libro from "./../Models/Book";
 
 export const NUEVO_USUARIO: Usuario = gql`
 mutation crearUsuario($input: UsuarioInput) {
@@ -35,13 +36,34 @@ export const ELIMINIAR_USUARIO = gql`
   }
 `;
 
-export const NUEVO_LIBRO = gql`
+export const NUEVO_LIBRO: Libro = gql`
   mutation nuevoLibro($input : LibroInput){
     nuevoLibro(input: $input){
       id
       titulo
       autor
       coleccion
+    }
+  }
+`;
+
+
+export const ELIMINAR_LIBRO = gql`
+  mutation eliminarLibro($id : ID!){
+    eliminarLibro(id: $id)
+  }
+`;
+
+export const ACTUALIZAR_LIBRO: Libro = gql`
+  mutation actualizarLibro($input : LibroInput) {
+      actualizarLibro(input: $input){
+      titulo
+      autor
+      genero
+      coleccion
+      sinopsis{
+        parrafo
+      }
     }
   }
 `;
