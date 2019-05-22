@@ -50,8 +50,9 @@
                     span{
                         width: 70px;
                     }
-                    input{
-                        width: calc(100% - 210px);
+                    textarea{
+                        width: calc(100% - 200px);
+                        margin-right: 10px;
                     }
                     .delete{
                         @include btnPrimary(auto, $monza, $white, .4rem 1rem);
