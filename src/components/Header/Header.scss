@@ -5,7 +5,7 @@
     box-sizing: border-box;
     background-color: $white;
     .logoWrapper{
-        @include flex(100%, row, flex-start, center);
+        @include flex(320px, row, flex-start, center);
         .logo{
             width: 100px;
             img{
@@ -17,7 +17,18 @@
             @include title(2rem, $mineshaft, normal, 700);
         }
     }
-    .btn{
-        @include btnPrimary(auto, $deepsea, $white, .4rem 1rem);
+    .navigation{
+        width: calc(100% - 320px);
+        .menu-list{
+            @include flex(100%, row, flex-end, center);
+            padding: 0;
+            list-style: none;
+            &_item{
+                margin-left: 1rem;
+                .btn{
+                    @include btnPrimary(auto, $deepsea, $white, .4rem 1rem);
+                }
+            }
+        }
     }
 }

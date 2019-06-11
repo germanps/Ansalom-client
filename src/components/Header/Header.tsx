@@ -17,14 +17,18 @@ export default class Header extends React.Component<IHeaderProps, {}> {
                     </div>
                     <h1 className="main-title">{this.props.title}</h1>
                 </div>
-                <nav>
-                    <ul>
-                        <li>Recomendados</li>
-                        <li>Autores</li>
-                        <li>Series</li>
+                <nav className="navigation">
+                    <ul className="menu-list">
+                        <li className="menu-list_item">
+                            <Link to="/user/new" className="btn">Nuevo usuario</Link>
+                        </li>
+                        <li className="menu-list_item">
+                            <Link to="/books" className="btn">Libros</Link>
+                        </li> 
+                        <li className="menu-list_item">
+                            <Link to="/book/new" className="btn">Nuevo libro</Link>
+                        </li>
                     </ul>
-                    <Link to="/user/new" className="btn">Nuevo usuario</Link>
-                    <Link to="/book/new" className="btn">Nuevo libro</Link>
                 </nav>
             </header>
         );
