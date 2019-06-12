@@ -13,6 +13,7 @@ export default class NewUser extends React.Component<INewUserProps, INewUserStat
             usuario: {
                 nombre: "",
                 apellido: "",
+                password: "",
                 email: "",
                 descargas: 0,
                 rol: "",
@@ -35,9 +36,9 @@ export default class NewUser extends React.Component<INewUserProps, INewUserStat
                         <form className="form container"
                             onSubmit={e => {
                                 e.preventDefault();
-                                const {nombre, apellido, email, favoritos, descargas, rol, comentarios} = this.state.usuario;
+                                const {nombre, apellido, password, email, favoritos, descargas, rol, comentarios} = this.state.usuario;
                                 // Control de campos vacios
-                                if (nombre === "" || apellido === "" || email === "" || rol === "") {
+                                if (nombre === "" || apellido === "" || email === "" || rol === "" || password === "") {
                                     this.setState({error: true});
                                     return;
                                 }
@@ -45,6 +46,7 @@ export default class NewUser extends React.Component<INewUserProps, INewUserStat
                                 const input = {
                                     nombre,
                                     apellido,
+                                    password,
                                     email,
                                     descargas,
                                     rol
@@ -128,6 +130,26 @@ export default class NewUser extends React.Component<INewUserProps, INewUserStat
                                 </select>
                             </div>
                         </div>
+                        <div className="form-row">
+                            <div className="form-group">
+                                <label htmlFor="password">Password</label>
+                                <input
+                                    id="password"
+                                    type="password"
+                                    className="form-control"
+                                    placeholder="Password"
+                                    onChange={e => {
+                                        this.setState({
+                                            usuario: {
+                                                ...this.state.usuario,
+                                                password: e.target.value
+                                            }
+                                        });
+                                    }}
+                                />
+                            </div>   
+                            <input type="submit" value="Guardar usuario"/>     
+                        </div>
                         <div className="form-row sm-row">
                             <div className="form-group">
                                 <label htmlFor="name">Descargas</label>
@@ -146,7 +168,7 @@ export default class NewUser extends React.Component<INewUserProps, INewUserStat
                                     }}
                                 />
                             </div>
-                            <input type="submit" value="Guardar usuario"/>
+                            
                         </div>
                     </form>
                     )}
