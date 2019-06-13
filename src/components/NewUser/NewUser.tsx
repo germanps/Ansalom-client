@@ -18,16 +18,20 @@ export default class NewUser extends React.Component<INewUserProps, INewUserStat
                 descargas: 0,
                 rol: "",
             },
-            error: false
+            error: false,
+            errorPass: false,
+            repitePassword: ""
         };
     }
     public render(): React.ReactElement<INewUserProps> {
-        const {error} = this.state;
+        const {error, errorPass} = this.state;
         let respuesta = (error) ? <p className="form-error container">Todos los campos son abligatorios</p> : "";
+        let errorPasswords = (errorPass) ? <p className="form-error container">Los passwords deben ser iguales</p> : "";
         return(
             <div className="newUser">
                 <h2 className="title container">Nuevo usuario</h2>
                 {respuesta}
+                {errorPasswords}
                 <Mutation
                     mutation={NUEVO_USUARIO}
                     onCompleted={ () => this.props.history.push("/") }
@@ -36,13 +40,24 @@ export default class NewUser extends React.Component<INewUserProps, INewUserStat
                         <form className="form container"
                             onSubmit={e => {
                                 e.preventDefault();
-                                const {nombre, apellido, password, email, favoritos, descargas, rol, comentarios} = this.state.usuario;
+                                const {nombre, apellido, password, email, descargas, rol} = this.state.usuario;
+                                const {repitePassword} = this.state;
                                 // Control de campos vacios
                                 if (nombre === "" || apellido === "" || email === "" || rol === "" || password === "") {
                                     this.setState({error: true});
                                     return;
                                 }
+                                // Control de passwords iguales
+                                if (repitePassword != password){
+                                    this.setState({
+                                        errorPass: true
+                                    });
+                                    return;
+                                }
+                              
                                 this.setState({error: false});
+                                this.setState({errorPass: false});
+
                                 const input = {
                                     nombre,
                                     apellido,
@@ -148,7 +163,21 @@ export default class NewUser extends React.Component<INewUserProps, INewUserStat
                                     }}
                                 />
                             </div>   
-                            <input type="submit" value="Guardar usuario"/>     
+                            <div className="form-group">
+                                <label htmlFor="password">Repite password</label>
+                                <input
+                                    id="repitePassword"
+                                    type="password"
+                                    className="form-control"
+                                    placeholder="Repite password"
+                                    onChange={e => {
+                                        this.setState({
+                                            repitePassword: e.target.value
+                                        });
+                                    }}
+                                />
+                            </div>   
+                            <input type="submit" value="Guardar usuario"/>       
                         </div>
                         <div className="form-row sm-row">
                             <div className="form-group">

@@ -4,7 +4,7 @@ export default class Usuario {
     public id?: string;
     public nombre?: string;
     public apellido?: string;
-    public password: string;
+    public password?: string;
     public email?: string;
     public descargas?: number;
     public favoritos?: Favorito;
