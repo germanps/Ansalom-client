@@ -9,6 +9,7 @@ import EditUser from "./../EditUser/EditUser";
 import NewBook from "./../NewBook/NewBook";
 import Books from "../Books/Books";
 import EditBook from "../EditBook/EditBook";
+import Auth from "../Auth/Auth";
 
 export default class Main extends React.Component<IMainProps, {}> {
     public render(): React.ReactElement<IMainProps> {
@@ -18,7 +19,8 @@ export default class Main extends React.Component<IMainProps, {}> {
                     <>
                         <Header title="Ansalom Books"/>
                         <Switch>
-                            <Route exact path="/" component={Users} />
+                            <Route exact path="/" component={Auth} />
+                            <Route exact path="/users" component={Users} />
                             <Route exact path="/user/new" component={NewUser} />
                             <Route exact path="/user/edit/:id" component={EditUser} />
                             <Route exact path="/book/edit/:id" component={EditBook} />

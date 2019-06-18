@@ -68,7 +68,14 @@ export const ACTUALIZAR_LIBRO: Libro = gql`
     sinopsis{
       parrafo
     }
-  }
+  }   
 }
 `;
 
+export const AUTENTICAR_USUARIO = gql`
+  mutation autenticarUsuario($email: String $password: String){
+    autenticarUsuario(email: $email, password: $password){
+      token
+    }
+  }
+`;
