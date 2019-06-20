@@ -11,48 +11,95 @@ export default class Auth extends React.Component<IAuthProps, IAuthState>{
     constructor(props: IAuthProps){
         super(props);
         this.state = {
-            usuario: "",
+            email: "",
             password: ""
         }
     }
 
-    public componentWillMount(){
-        console.log("auth")
+
+ 
+    public iniciarSesion = (e, usuarioAutenticar) => {
+        usuarioAutenticar().then(async ({data}) => {
+            //almacenar el token en el local storage
+            localStorage.setItem('token', data.autenticarUsuario.token);
+            //ejecutar query una vez se inicie sesion
+
+            //limpiar State
+            
+            //redireccionar
+        });
     }
-    public usuarioAutenticar(){
-        debugger;
-        console.log("submit");
+
+
+    private validarForm = () => {
+        const {email, password} = this.state;
+        const noValido = !email || !password;
+        return noValido;
     }
+
     
     public render(): React.ReactElement<IAuthProps>{
 
-        
+        const {email, password} = this.state;
         return(
+           
             <div className="authentication">
                 <h2>Login</h2>
                 <Mutation
                     mutation={AUTENTICAR_USUARIO}
-                    onCompleted={ () => this.props.history.push("/")}
+                    variables={{email, password}}
+                    //onCompleted={ () => this.props.history.push("/")}
                 >
-                {(autenticarUsuario, {loading, error, data}) => {
+                {(usuarioAutenticar, {loading, error, data}) => {
+                   
                     return(
                         <form
                             className="form container"
-                            onSubmit={this.usuarioAutenticar.bind(this)}
+                            onSubmit={e => this.iniciarSesion(e, usuarioAutenticar)}
                         >
+                             {error && <p>error!</p>}
+                             
                             <div className="form-row">
                                 <div className="form-group">
-                                    <label htmlFor="name">Correo</label>
-                                    <input type="email"/>
+                                    <label htmlFor="email">Email</label>
+                                    <input 
+                                        id="email"
+                                        type="email"
+                                        className="form-control"
+                                        placeholder="Email"
+                                        onChange={ e => {
+                                            this.setState({
+                                                email: e.target.value
+                                            });
+                                        }}
+                                        value={email}
+                                    />
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="form-group">
-                                    <label htmlFor="name">Password</label>
-                                    <input type="password"/>
+                                    <label htmlFor="password">Password</label>
+                                    <input 
+                                        id="password"
+                                        type="password"
+                                        className="form-control"
+                                        placeholder="Password"
+                                        onChange={ e => {
+                                            this.setState({
+                                                password: e.target.value
+                                            });
+                                        }}
+                                        value={password}
+                                    />
                                 </div>
                             </div>
-                            <input type="submit" value="Entrar"/> 
+                            <input 
+                                type="submit" 
+                                value="Entrar"
+                                disabled={
+                                    loading || this.validarForm()
+                                }
+                            /> 
                         </form>
                     );
                 }}
