@@ -19,7 +19,7 @@ export default class Main extends React.Component<IMainProps, {}> {
                     <>
                         <Header title="Ansalom Books"/>
                         <Switch>
-                            <Route exact path="/" component={Auth} />
+                            <Route exact path="/" render={() => <Auth refetch={this.props.refetch} session={this.props.session}/> } />
                             <Route exact path="/users" component={Users} />
                             <Route exact path="/user/new" component={NewUser} />
                             <Route exact path="/user/edit/:id" component={EditUser} />
