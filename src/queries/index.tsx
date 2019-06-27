@@ -85,7 +85,7 @@ export const OBTENER_LIBRO = gql`
 export const USUARIO_ACTUAL = gql`
     query obtenerUsuario {
         obtenerUsuario{
-            email
+            usuario
         }
     }
 `;
